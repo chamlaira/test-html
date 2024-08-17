@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leave Management</title>
+  <link rel="stylesheet" type="text/css" href="/public/index.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="container">
+  <!-- header -->
+  <div class="headerContainer">
+    <div class="appName">
+      <div class="logo">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+      </div>
+      <h1>HRHR</h1>
+      <i class="bx bx-transfer-alt" style="font-size: 20px;"></i>
+    </div>
+    <div class="header">
+      <h2>ABC Company SDB. BHD.</h2>
+
+      <div class="headerRight">
+        <div class="search">
+          <div class="searchIcon">
+            <i class="bx bx-search" style="font-size: 20px;"></i>
+          </div>
+          <input type="text" placeholder="Enter any keyword..."></input>
+        </div>
+        <i class="bx bx-slider-alt" style="font-size: 20px;"></i>
+        <i class="bx bx-bell" style="font-size: 20px;"></i>
+        <i class="bx bxs-user-circle" style="font-size: 40px;"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- sidebar -->
+  <div class="sidebarContainer">
+    <div>
+      <i class="bx bxs-grid-alt" style="font-size: 20px;"></i>
+      <p>Dashboard</p>
+    </div>
+    <div>
+      <i class="bx bxs-calendar" style="font-size: 20px;"></i>
+      <p>Calendar</p>
+    </div>
+    <div>
+      <i class="bx bx-male-female" style="font-size: 20px;"></i>
+      <p>Recruitment</p>
+    </div>
+    <div>
+      <i class="bx bxs-user"></i>
+      <p>Employees</p>
+    </div>
+    <div class="active">
+      <i class="bx bx-time-five" style="font-size: 20px;"></i>
+      <p>Leave</p>
+    </div>
+    <div>
+      <i class="bx bx-network-chart" style="font-size: 20px;"></i>
+      <p>Organisation</p>
+    </div>
+    <div>
+      <i class="bx bxs-dollar-circle" style="font-size: 20px;"></i>
+      <p>Billings</p>
+    </div>
+    <div>
+      <i class="bx bxs-message-dots" style="font-size: 20px;"></i>
+      <p>Engagement</p>
+    </div>
+    <div>
+      <i class="bx bx-desktop" style="font-size: 20px;"></i>
+      <p>Development</p>
+    </div>
+    <div>
+      <i class="bx bxs-award" style="font-size: 20px;"></i>
+      <p>Performance</p>
+    </div>
+    <div>
+      <i class="bx bxs-report" style="font-size: 20px;"></i>
+      <p>Reports</p>
+    </div>
+  </div>
+
+  <!-- body -->
+  <div class="bodyContainer">
+    <!-- tab selector -->
+    <div class="tabSelector">
+      <p>Leave Management</p>
+      <p>Leave Requests</p>
+      <p>Leave Types</p>
+      <p>Leave Calendar</p>
+      <p>Leave Report</p>
+      <p>Leave Approver</p>
+      <i class="bx bx-slider-alt" style="font-size: 20px;"></i>
+    </div>
+
+    <!-- dashboard -->
+    <h1 class="dashboardLabel">Dashboard</h1>
+    <div class="dashboard">
+      <!-- heatmap -->
+      <div class="heatmap">
+        <div class="header">
+          <p class="heatmapLabel">Heatmap</p>
+          <div class="headerRight">
+            <div class="dropdown">
+              <p>SICKDAY</p>
+              <i class='bx bxs-down-arrow' style="font-size: 10px;"></i>
+            </div>
+            <div class="dropdown">
+              <p>MARCH 2023</p>
+              <i class='bx bxs-down-arrow' style="font-size: 10px;"></i>
+            </div>
+          </div>
+        </div>
+        <div class="daysContainer">
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div class="active">Fri</div>
+          <div>Sat</div>
+          <div>Sun</div>
+        </div>
+        <div class="chartsContainer">
+          <div class="chartContainer">
+            <p>Sick Leave</p>
+            <div class="circleBorder percent50">
+              <div class="circle">
+                <span>50%</span>
+              </div>
+            </div>
+          </div>
+          <div class="chartContainer">
+            <p>Annual Leave</p>
+            <div class="circleBorder percent30">
+              <div class="circle">
+                <span>30%</span>
+              </div>
+            </div>
+          </div>
+          <div class="chartContainer">
+            <p>Emergency Leave</p>
+            <div class="circleBorder percent20">
+              <div class="circle">
+                <span>20%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>Most popular day: Friday</p>
+      </div>
+      <!-- most days away -->
+      <div class="mostDaysAwayContainer">
+        <div class="header">
+          <p class="mostDaysAwayLabel">Most Days Away</p>
+          <div>
+            <p>MARCH 2023</p>
+            <i class='bx bxs-down-arrow' style="font-size: 10px;"></i>
+          </div>
+        </div>
+        <div class="mostDaysAway">
+          <div>
+            <i class="bx bxs-user-circle" style="font-size: 40px;"></i>
+            <p>Mark Jacobs</p>
+            <p>5.0 day(s)</p>
+          </div>
+          <div>
+            <i class="bx bxs-user-circle" style="font-size: 40px;"></i>
+            <p>Charlie Kristen</p>
+            <p>3.5 day(s)</p>
+          </div>
+          <div>
+            <i class="bx bxs-user-circle" style="font-size: 40px;"></i>
+            <p>Nur Fariha binti Maslan</p>
+            <p>1.0 day(s)</p>
+          </div>
+          <div>
+            <i class="bx bxs-user-circle" style="font-size: 40px;"></i>
+            <p>Nishant Talwar</p>
+            <p>1.0 day(s)</p>
+          </div>
+        </div>
+        <p class="total">TOTAL: 9.5 day(s)</p>
+      </div>
+    </div>
+
+    <!-- leave requests -->
+     <div class="leaveRequestsHeader">
+       <h1>Leave Requests</h1>
+
+       <div class="leaveRequestsRight">
+          <div class="view active">
+            <p>List View</p>
+          </div>
+          <div class="view">
+            <p>Month View</p>
+          </div>
+       </div>
+     </div>
+
+     <div class="leaveRequestsContainer">
+        <div class="statusContainer">
+          <p>All</p>
+          <p>Approved</p>
+          <p>Rejected</p>
+        </div>
+        <div class="datesContainer">
+          <div>
+            <i class='bx bxs-left-arrow' style="font-size: 10px;" ></i>
+            March 2023
+          </div>
+          <div>
+            <i class='bx bxs-calendar' ></i>
+            <i class='bx bxs-down-arrow' style="font-size: 10px;"></i>
+          </div>
+          <i class='bx bxs-right-arrow' style="font-size: 10px;" ></i>
+        </div>
+        <div class="titleContainer">
+          <div class="column">
+            <input type="checkbox">#
+            <i class='bx bxs-sort-alt' ></i>
+          </div>
+          <div class="column">
+            <p>NAME</p>
+            <i class='bx bxs-sort-alt' ></i>
+          </div>
+          <div class="column">
+            <p>PERIOD</p>
+            <i class='bx bxs-sort-alt' ></i>
+          </div>
+          <div class="column">
+            <p>DAY(S)</p>
+            <i class='bx bxs-sort-alt' ></i>
+          </div>
+          <div class="column">
+            <p>LEAVE TYPE</p>
+            <i class='bx bxs-sort-alt' ></i>
+          </div>
+          <div class="column">
+            <p>ACTIONS</p>
+            <i class='bx bxs-sort-alt' ></i>
+          </div>
+        </div>
+        <div class="titleContainer">
+          <div class="column">
+            <input type="checkbox">
+          </div>
+          <div class="column">
+            <i class="bx bxs-user-circle" style="font-size: 40px;"></i>
+            <p>Mark Jacobs</p>
+          </div>
+          <div class="column">
+            <div>
+              <p>31 Mar. 2023 09:00 AM</p>
+              <p>31 Mar. 2023 18:00 PM</p>
+            </div>
+          </div>
+          <div class="column">
+            <p>1.0</p>
+          </div>
+          <div class="column">
+            <p>Annual Leave</p>
+          </div>
+          <div class="column rejectContainer">
+            <button class="reject">REJECT</button>
+            <button class="approve">APPROVE</button>
+          </div>
+          <div class="column alignRight">
+            <i class='bx bx-chevron-right' style="font-size: 30px;" ></i>
+          </div>
+        </div>
+        <div class="titleContainer">
+          <div class="column">
+            <input type="checkbox">
+          </div>
+          <div class="column">
+            <i class="bx bxs-user-circle" style="font-size: 40px;"></i>
+            <p>Charlie Kristen</p>
+          </div>
+          <div class="column">
+            <div>
+              <p>10 Apr. 2023 09:00 AM</p>
+              <p>11 Apr. 2023 18:00 PM</p>
+            </div>
+          </div>
+          <div class="column">
+            <p>2.0</p>
+          </div>
+          <div class="column">
+            <p>Annual Leave</p>
+          </div>
+          <div class="column rejectContainer">
+            <button class="reject">REJECT</button>
+            <button class="approve">APPROVE</button>
+          </div>
+          <div class="column alignRight">
+            <i class='bx bx-chevron-right' style="font-size: 30px;" ></i>
+          </div>
+        </div>
+        <div class="titleContainer">
+          <div class="column">
+            <input type="checkbox">
+          </div>
+          <div class="column">
+            <i class="bx bxs-user-circle" style="font-size: 40px;"></i>
+            <p>Nur Fariha binti Maslan</p>
+          </div>
+          <div class="column">
+            <div>
+              <p>21 Apr. 2023 09:00 AM</p>
+              <p>24 Apr. 2023 18:00 PM</p>
+            </div>
+          </div>
+          <div class="column">
+            <p>2.0</p>
+          </div>
+          <div class="column">
+            <p>Hospital Leave</p>
+          </div>
+          <div class="column rejectContainer">
+            <button class="reject">REJECT</button>
+            <button class="approve">APPROVE</button>
+          </div>
+          <div class="column alignRight">
+            <i class='bx bx-chevron-right' style="font-size: 30px;" ></i>
+          </div>
+        </div>
+        <div class="titleContainer">
+          <div class="column">
+            <input type="checkbox">
+          </div>
+          <div class="column">
+            <i class="bx bxs-user-circle" style="font-size: 40px;"></i>
+            <p>Mark Jacobs</p>
+          </div>
+          <div class="column">
+            <div>
+              <p>31 March, 2023 09:00 AM</p>
+              <p>31 March, 2023 18:00 PM</p>
+            </div>
+          </div>
+          <div class="column">
+            <p>1.5</p>
+          </div>
+          <div class="column">
+            <p>Sick Leave</p>
+          </div>
+          <div class="column approveContainer">
+            <button class="approve">APPROVED</button>
+          </div>
+          <div class="column alignRight">
+            <i class='bx bx-chevron-right' style="font-size: 30px;" ></i>
+          </div>
+        </div>
+        <div class="titleContainer">
+          <div class="column">
+            <input type="checkbox">
+          </div>
+          <div class="column">
+            <i class="bx bxs-user-circle" style="font-size: 40px;"></i>
+            <p>Mark Jacobs</p>
+          </div>
+          <div class="column">
+            <div>
+              <p>31 March, 2023 09:00 AM</p>
+              <p>31 March, 2023 18:00 PM</p>
+            </div>
+          </div>
+          <div class="column">
+            <p>0.5</p>
+          </div>
+          <div class="column">
+            <p>Sick Leave</p>
+          </div>
+          <div class="column approveContainer">
+            <button class="approve">APPROVED</button>
+          </div>
+          <div class="column alignRight">
+            <i class='bx bx-chevron-right' style="font-size: 30px;" ></i>
+          </div>
+        </div>
+     </div>
+  </div>
+</body>
+</html>

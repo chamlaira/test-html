@@ -1,0 +1,531 @@
+@import './variables.scss';
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  background: $black;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+
+  .modalContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $dark-gray;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    min-width: 300px;
+    text-align: center;
+    color: white;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid $border-gray;
+      padding-bottom: 1rem;
+    }
+
+    .message {
+      padding: 1rem;
+      border-bottom: 1px solid $border-gray;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+
+      button:nth-child(1) {
+        background: transparent;
+        border: 1px solid $gray;
+        color: white;
+        border-radius: 15px;
+        padding: 10px 2rem;
+        cursor: pointer;
+      }
+
+      button:nth-child(2) {
+        background: $purple;
+        color: white;
+        border-radius: 15px;
+        padding: 10px 2rem;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  z-index: 1;
+}
+
+p {
+  margin: 0;
+}
+
+// header
+.headerContainer {
+  width: 100%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 200px auto;
+  padding: 1rem;
+  border-bottom: 1px solid $dark-gray;
+  position: fixed;
+  overflow: scroll;
+  background: $black;
+  filter: blur(5px);
+  z-index: 999;
+
+  .appName {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 1rem;
+    margin-right: 1rem;
+    color: $gray;
+
+    h1 {
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .logo {
+      .circle1 {
+        width: 25px;
+        height: 25px;
+        background-color: $purple;
+        border-radius: 50%;
+        transform: translate(10px, 0);
+      }
+
+      .circle2 {
+        width: 15px;
+        height: 15px;
+        background-color: $purple;
+        border-radius: 50%;
+        transform: translate(-3px, -2px);
+      }
+
+      .circle3 {
+        width: 10px;
+        height: 10px;
+        background-color: $purple;
+        border-radius: 50%;
+        transform: translate(18px, -10px);
+      }
+    }
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      font-size: 1rem;
+      color: white;
+    }
+
+    .headerRight {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      align-items: center;
+      gap: 1rem;
+      color: $gray;
+
+      .search {
+        position: relative;
+
+        .searchIcon {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-40%);
+          left: 5px;
+          width: 20px;
+        }
+
+        input {
+          padding: 5px 22px 5px 30px;
+          border: 0;
+          border-radius: 20px;
+          background-color: $dark-gray;
+        }
+      }
+    }
+  }
+}
+
+// sidebar
+.sidebarContainer {
+  position: fixed;
+  box-sizing: border-box;
+  top: 92.66px;
+  width: 200px;
+  min-height: 100%;
+  padding: 0 1rem 1rem 0;
+  border-right: 1px solid $dark-gray;
+  color: $gray;
+  overflow: scroll;
+  height: 100%;
+  background: $black;
+
+  div {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+
+    p {
+      margin-left: 0.5rem;
+    }
+  }
+
+  .active {
+    background-color: $purple;
+  }
+}
+
+// main content
+.bodyContainer {
+  position: absolute;
+  width: calc(100% - 200px);
+  top: 92.66px;
+  left: 200px;
+  height: calc(100% - 92.66px);
+  overflow: hidden;
+  color: $gray;
+  background: $black;
+
+  .tabSelector {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+    font-size: 14px;
+    margin-top: 1rem;
+
+    p {
+      padding-bottom: 0.5rem;
+    }
+
+    p:nth-child(1) {
+      border-bottom: 2px solid $purple;
+    }
+  }
+
+  .dashboardLabel {
+    margin-left: 1rem;
+  }
+
+  // dashboard
+  .dashboard {
+    display: flex;
+    align-items: center;
+
+    .heatmap {
+      background: $dark-gray;
+      width: 50%;
+      margin-left: 1rem;
+      padding: 1rem;
+      border: 1px solid $border-gray;
+      border-radius: 10px;
+
+      p {
+        font-size: 12px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $border-gray;
+        padding-bottom: 1rem;
+
+        .heatmapLabel {
+          color: white;
+        }
+
+        .headerRight {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          gap: 2rem;
+
+          .dropdown {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            gap: 10px;
+          }
+        }
+      }
+
+      .daysContainer {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        padding: 1rem 0;
+
+        div {
+          border: 1px solid $border-gray;
+          text-align: center;
+        }
+
+        .active {
+          background: $red;
+        }
+      }
+
+      .chartsContainer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 1px solid $border-gray;
+        padding: 0.5rem 0;
+        margin-bottom: 0.7rem;
+
+        .chartContainer {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .circle {
+          position: relative;
+          top: 5px;
+          left: 5px;
+          text-align: center;
+          width: 100px;
+          height: 100px;
+          border-radius: 100%;
+          background-color: $dark-gray;
+
+          span {
+            font-size: 30px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+
+        .circleBorder {
+          position: relative;
+          text-align: center;
+          width: 110px;
+          height: 110px;
+          border-radius: 100%;
+        }
+
+        .percent50 {
+          background: conic-gradient($purple 0% 50%, $border-gray 50% 100%);
+        }
+
+        .percent30 {
+          background: conic-gradient($purple 0% 30%, $border-gray 30% 100%);
+        }
+
+        .percent20 {
+          background: conic-gradient($purple 0% 20%, $border-gray 20% 100%);
+        }
+      }
+    }
+
+    .mostDaysAwayContainer {
+      background: $dark-gray;
+      width: 50%;
+      margin: 0 1rem;
+      padding: 1rem;
+      border: 1px solid $border-gray;
+      border-radius: 10px;
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .mostDaysAwayLabel {
+          color: white;
+        }
+
+        div {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+
+          p {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .mostDaysAway {
+        border-top: 1px solid $border-gray;
+        border-bottom: 1px solid $border-gray;
+        margin: 1rem 0;
+        padding: 1rem 0;
+        font-size: 14px;
+
+        div {
+          display: grid;
+          grid-template-columns: auto 1fr auto;
+          align-items: center;
+
+          p:nth-child(2) {
+            color: $gray;
+          }
+
+          p:nth-child(3) {
+            color: white;
+          }
+        }
+      }
+
+      .total {
+        font-size: 12px;
+        color: $gray;
+      }
+    }
+  }
+
+  // leave requests
+  .leaveRequestsHeader {
+    margin: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .leaveRequestsRight {
+      display: flex;
+      align-items: center;
+
+      .view {
+        padding: 0.8rem;
+        background: $dark-gray;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        cursor: pointer;
+      }
+
+      .active {
+        background: $purple;
+        border-top-right-radius: 0;
+        border-top-left-radius: 15px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 15px;
+      }
+    }
+  }
+
+  .leaveRequestsContainer {
+    margin: 1rem;
+    background: $dark-gray;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    padding: 1rem;
+
+    .statusContainer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      p {
+        padding-bottom: 10px;
+      }
+
+      p:nth-child(1) {
+        border-bottom: 4px solid $purple;
+      }
+    }
+
+    .datesContainer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .titleContainer {
+      display: grid;
+      grid-template-columns: 50px repeat(2, 2fr) repeat(2, 1fr) 1.2fr 1fr;
+      grid-column: 1/-1;
+      border-bottom: 1px solid $border-gray;
+      padding: 1rem;
+
+      .column {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+
+      .alignRight {
+        justify-content: flex-end;
+      }
+
+      .rejectContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+
+        button:nth-child(1) {
+          background: transparent;
+          border: 1px solid $gray;
+          color: white;
+          border-radius: 15px;
+          padding: 10px;
+          cursor: pointer;
+        }
+
+        button:nth-child(2) {
+          background: $purple;
+          color: white;
+          border-radius: 15px;
+          padding: 10px;
+          border: none;
+          outline: none;
+          cursor: pointer;
+        }
+      }
+
+      .approveContainer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1rem;
+
+        button {
+          background: $purple;
+          color: white;
+          border-radius: 15px;
+          padding: 10px;
+          border: none;
+          outline: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
