@@ -89,11 +89,22 @@ p {
   background-color: #2C2F33;
 }
 
+.sidebarAndBodyContainer {
+  display: grid;
+  grid-template-columns: 180px auto;
+  position: absolute;
+  top: 115.05px;
+  overflow: scroll;
+}
+@media screen and (min-width: 768px) {
+  .sidebarAndBodyContainer {
+    grid-template-columns: 200px auto;
+    top: 92.66px;
+  }
+}
+
 .sidebarContainer {
-  position: fixed;
   box-sizing: border-box;
-  top: 92.66px;
-  width: 200px;
   min-height: 100%;
   padding: 0 1rem 1rem 0;
   border-right: 1px solid #2C2F33;
@@ -119,12 +130,6 @@ p {
 }
 
 .bodyContainer {
-  position: absolute;
-  width: calc(100% - 200px);
-  top: 92.66px;
-  left: 200px;
-  height: calc(100% - 92.66px);
-  overflow: scroll;
   color: #d4d3d3;
   background: #23272A;
 }
@@ -147,15 +152,30 @@ p {
 }
 .bodyContainer .dashboard {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .bodyContainer .dashboard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }
 .bodyContainer .dashboard .heatmap {
   background: #2C2F33;
-  width: 50%;
-  margin-left: 1rem;
+  width: 80%;
   padding: 1rem;
   border: 1px solid #3b3a3a;
   border-radius: 10px;
+  margin: 0;
+}
+@media screen and (min-width: 768px) {
+  .bodyContainer .dashboard .heatmap {
+    width: 50%;
+    margin-left: 1rem;
+  }
 }
 .bodyContainer .dashboard .heatmap p {
   font-size: 12px;
@@ -213,24 +233,41 @@ p {
   top: 5px;
   left: 5px;
   text-align: center;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   border-radius: 100%;
   background-color: #2C2F33;
 }
+@media screen and (min-width: 768px) {
+  .bodyContainer .dashboard .heatmap .chartsContainer .circle {
+    width: 100px;
+    height: 100px;
+  }
+}
 .bodyContainer .dashboard .heatmap .chartsContainer .circle span {
-  font-size: 30px;
+  font-size: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+@media screen and (min-width: 768px) {
+  .bodyContainer .dashboard .heatmap .chartsContainer .circle span {
+    font-size: 30px;
+  }
+}
 .bodyContainer .dashboard .heatmap .chartsContainer .circleBorder {
   position: relative;
   text-align: center;
-  width: 110px;
-  height: 110px;
+  width: 60px;
+  height: 60px;
   border-radius: 100%;
+}
+@media screen and (min-width: 768px) {
+  .bodyContainer .dashboard .heatmap .chartsContainer .circleBorder {
+    width: 110px;
+    height: 110px;
+  }
 }
 .bodyContainer .dashboard .heatmap .chartsContainer .percent50 {
   background: conic-gradient(#7316e8 0% 50%, #3b3a3a 50% 100%);
@@ -243,11 +280,16 @@ p {
 }
 .bodyContainer .dashboard .mostDaysAwayContainer {
   background: #2C2F33;
-  width: 50%;
+  width: 80%;
   margin: 0 1rem;
   padding: 1rem;
   border: 1px solid #3b3a3a;
   border-radius: 10px;
+}
+@media screen and (min-width: 768px) {
+  .bodyContainer .dashboard .mostDaysAwayContainer {
+    width: 50%;
+  }
 }
 .bodyContainer .dashboard .mostDaysAwayContainer .header {
   display: flex;
@@ -315,51 +357,75 @@ p {
   margin: 1rem;
   background: #2C2F33;
   border-radius: 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   align-items: center;
   padding: 1rem;
 }
-.bodyContainer .leaveRequestsContainer .statusContainer {
+@media screen and (min-width: 768px) {
+  .bodyContainer .leaveRequestsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+}
+.bodyContainer .leaveRequestsContainer .headerLeaveContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: 1/3;
+}
+.bodyContainer .leaveRequestsContainer .headerLeaveContainer .statusContainer {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-.bodyContainer .leaveRequestsContainer .statusContainer p {
+.bodyContainer .leaveRequestsContainer .headerLeaveContainer .statusContainer p {
   padding-bottom: 10px;
 }
-.bodyContainer .leaveRequestsContainer .statusContainer p:nth-child(1) {
+.bodyContainer .leaveRequestsContainer .headerLeaveContainer .statusContainer p:nth-child(1) {
   border-bottom: 4px solid #7316e8;
 }
-.bodyContainer .leaveRequestsContainer .datesContainer {
+.bodyContainer .leaveRequestsContainer .headerLeaveContainer .datesContainer {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 1rem;
 }
-.bodyContainer .leaveRequestsContainer .titleContainer {
-  display: grid;
-  grid-template-columns: 50px repeat(2, 2fr) repeat(2, 1fr) 1.2fr 1fr;
-  grid-column: 1/-1;
-  border-bottom: 1px solid #3b3a3a;
-  padding: 1rem;
+.bodyContainer .leaveRequestsContainer div.titleContainer {
+  display: none;
 }
-.bodyContainer .leaveRequestsContainer .titleContainer .column {
+@media screen and (min-width: 768px) {
+  .bodyContainer .leaveRequestsContainer div.titleContainer {
+    display: grid;
+    grid-template-columns: 50px repeat(4, 2fr) 180px 1fr;
+    grid-column: 1/3;
+  }
+}
+.bodyContainer .leaveRequestsContainer .leaveContainer {
+  display: grid;
+}
+@media screen and (min-width: 768px) {
+  .bodyContainer .leaveRequestsContainer .leaveContainer {
+    grid-template-columns: 50px repeat(4, 2fr) 180px 1fr;
+    grid-column: 1/-1;
+    border-bottom: 1px solid #3b3a3a;
+    padding: 1rem;
+  }
+}
+.bodyContainer .leaveRequestsContainer .leaveContainer .column {
   display: flex;
   align-items: center;
   text-align: center;
 }
-.bodyContainer .leaveRequestsContainer .titleContainer .alignRight {
+.bodyContainer .leaveRequestsContainer .leaveContainer .alignRight {
   justify-content: flex-end;
 }
-.bodyContainer .leaveRequestsContainer .titleContainer .rejectContainer {
+.bodyContainer .leaveRequestsContainer .leaveContainer .rejectContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
 }
-.bodyContainer .leaveRequestsContainer .titleContainer .rejectContainer button:nth-child(1) {
+.bodyContainer .leaveRequestsContainer .leaveContainer .rejectContainer button:nth-child(1) {
   background: transparent;
   border: 1px solid #d4d3d3;
   color: white;
@@ -367,7 +433,7 @@ p {
   padding: 10px;
   cursor: pointer;
 }
-.bodyContainer .leaveRequestsContainer .titleContainer .rejectContainer button:nth-child(2) {
+.bodyContainer .leaveRequestsContainer .leaveContainer .rejectContainer button:nth-child(2) {
   background: #7316e8;
   color: white;
   border-radius: 15px;
@@ -376,13 +442,13 @@ p {
   outline: none;
   cursor: pointer;
 }
-.bodyContainer .leaveRequestsContainer .titleContainer .approveContainer {
+.bodyContainer .leaveRequestsContainer .leaveContainer .approveContainer {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 1rem;
 }
-.bodyContainer .leaveRequestsContainer .titleContainer .approveContainer button {
+.bodyContainer .leaveRequestsContainer .leaveContainer .approveContainer button {
   background: #7316e8;
   color: white;
   border-radius: 15px;
@@ -392,13 +458,13 @@ p {
   cursor: pointer;
 }
 .bodyContainer .notificationsContainer {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   z-index: 999;
   background: #2C2F33;
   width: 400px;
-  height: 100vh;
+  height: 100%;
 }
 .bodyContainer .notificationsContainer .notificationsHeader {
   display: flex;
@@ -413,16 +479,16 @@ p {
 }
 .bodyContainer .notificationsContainer .notification {
   display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: auto 4fr;
+  grid-template-rows: auto 1fr;
   background: #3b3a3a;
   margin: 1rem;
   padding: 1rem;
   border-radius: 15px;
+  gap: 1rem;
 }
 .bodyContainer .notificationsContainer .notification .icon {
   grid-area: 1/1/2/2;
-  text-align: center;
 }
 .bodyContainer .notificationsContainer .notification .timestamp {
   grid-area: 2/2/3/3;

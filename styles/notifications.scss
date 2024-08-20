@@ -105,12 +105,22 @@ p {
   }
 }
 
+.sidebarAndBodyContainer {
+  display: grid;
+  grid-template-columns: 180px auto;
+  position: absolute;
+  top: 115.05px;
+  overflow: scroll;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 200px auto;
+    top: 92.66px;
+  }
+}
+
 // sidebar
 .sidebarContainer {
-  position: fixed;
   box-sizing: border-box;
-  top: 92.66px;
-  width: 200px;
   min-height: 100%;
   padding: 0 1rem 1rem 0;
   border-right: 1px solid $dark-gray;
@@ -140,12 +150,6 @@ p {
 
 // main content
 .bodyContainer {
-  position: absolute;
-  width: calc(100% - 200px);
-  top: 92.66px;
-  left: 200px;
-  height: calc(100% - 92.66px);
-  overflow: scroll;
   color: $gray;
   background: $black;
 
@@ -173,15 +177,28 @@ p {
   // dashboard
   .dashboard {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 1rem;
+
+    @media screen and (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
 
     .heatmap {
       background: $dark-gray;
-      width: 50%;
-      margin-left: 1rem;
+      width: 80%;
       padding: 1rem;
       border: 1px solid $border-gray;
       border-radius: 10px;
+      margin: 0;
+
+      @media screen and (min-width: 768px) {
+        width: 50%;
+        margin-left: 1rem;
+      }
 
       p {
         font-size: 12px;
@@ -248,26 +265,40 @@ p {
           top: 5px;
           left: 5px;
           text-align: center;
-          width: 100px;
-          height: 100px;
+          width: 50px;
+          height: 50px;
           border-radius: 100%;
           background-color: $dark-gray;
 
+          @media screen and (min-width: 768px) {
+            width: 100px;
+            height: 100px;
+          }
+
           span {
-            font-size: 30px;
+            font-size: 20px;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+
+            @media screen and (min-width: 768px) {
+              font-size: 30px;
+            }
           }
         }
 
         .circleBorder {
           position: relative;
           text-align: center;
-          width: 110px;
-          height: 110px;
+          width: 60px;
+          height: 60px;
           border-radius: 100%;
+
+          @media screen and (min-width: 768px) {
+            width: 110px;
+            height: 110px;
+          }
         }
 
         .percent50 {
@@ -286,11 +317,15 @@ p {
 
     .mostDaysAwayContainer {
       background: $dark-gray;
-      width: 50%;
+      width: 80%;
       margin: 0 1rem;
       padding: 1rem;
       border: 1px solid $border-gray;
       border-radius: 10px;
+
+      @media screen and (min-width: 768px) {
+        width: 50%;
+      }
 
       .header {
         display: flex;
@@ -374,39 +409,62 @@ p {
     margin: 1rem;
     background: $dark-gray;
     border-radius: 10px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     align-items: center;
     padding: 1rem;
 
-    .statusContainer {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-
-      p {
-        padding-bottom: 10px;
-      }
-
-      p:nth-child(1) {
-        border-bottom: 4px solid $purple;
-      }
-    }
-
-    .datesContainer {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .titleContainer {
+    @media screen and (min-width: 768px) {
       display: grid;
-      grid-template-columns: 50px repeat(2, 2fr) repeat(2, 1fr) 1.2fr 1fr;
-      grid-column: 1/-1;
-      border-bottom: 1px solid $border-gray;
-      padding: 1rem;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+    }
+
+    .headerLeaveContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      grid-column: 1/3;
+
+      .statusContainer {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        p {
+          padding-bottom: 10px;
+        }
+
+        p:nth-child(1) {
+          border-bottom: 4px solid $purple;
+        }
+      }
+
+      .datesContainer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+
+    div.titleContainer {
+      display: none;
+
+      @media screen and (min-width: 768px) {
+        display: grid;
+        grid-template-columns: 50px repeat(4, 2fr) 180px 1fr;
+        grid-column: 1/3;
+      }
+    }
+
+    .leaveContainer {
+      display: grid;
+
+      @media screen and (min-width: 768px) {
+        grid-template-columns: 50px repeat(4, 2fr) 180px 1fr;
+        grid-column: 1/-1;
+        border-bottom: 1px solid $border-gray;
+        padding: 1rem;
+      }
 
       .column {
         display: flex;
@@ -465,13 +523,13 @@ p {
 
   // notifications
   .notificationsContainer {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     z-index: 999;
     background: $dark-gray;
     width: 400px;
-    height: 100vh;
+    height: 100%;
 
     .notificationsHeader {
       display: flex;
@@ -488,16 +546,17 @@ p {
 
     .notification {
       display: grid;
-      grid-template-columns: 1fr 4fr;
-      grid-template-rows: 1fr 1fr;
+      grid-template-columns: auto 4fr;
+      grid-template-rows: auto 1fr;
       background: $border-gray;
       margin: 1rem;
       padding: 1rem;
       border-radius: 15px;
+      gap: 1rem;
 
       .icon {
         grid-area: 1 / 1 / 2 / 2;
-        text-align: center;
+        // text-align: center;
       }
 
       .timestamp {
