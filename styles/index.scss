@@ -114,7 +114,9 @@ p {
 
   @media screen and (min-width: 768px) {
     grid-template-columns: 200px auto;
+    width: 100%;
     top: 92.66px;
+    left: 0;
   }
 }
 
@@ -177,19 +179,19 @@ p {
   // dashboard
   .dashboard {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0.5rem;
+    margin-left: 1rem;
 
     @media screen and (min-width: 768px) {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+      gap: 1rem;
+      margin-left: 0;
     }
 
     .heatmap {
       background: $dark-gray;
-      width: 80%;
+      width: 50%;
       padding: 1rem;
       border: 1px solid $border-gray;
       border-radius: 10px;
@@ -315,7 +317,7 @@ p {
 
     .mostDaysAwayContainer {
       background: $dark-gray;
-      width: 80%;
+      width: 50%;
       margin: 0 1rem;
       padding: 1rem;
       border: 1px solid $border-gray;
@@ -409,6 +411,7 @@ p {
     border-radius: 10px;
     align-items: center;
     padding: 1rem;
+    width: fit-content;
 
     @media screen and (min-width: 768px) {
       display: grid;
@@ -445,32 +448,60 @@ p {
     }
 
     div.titleContainer {
-      display: none;
+      display: grid;
+      grid-template-columns: 50px repeat(4, 100px) 180px 1fr;
+      gap: 1rem;
 
       @media screen and (min-width: 768px) {
-        display: grid;
-        grid-template-columns: 50px repeat(4, 2fr) 180px 1fr;
+        grid-template-columns: 50px repeat(4, 1fr) 180px 1fr;
         grid-column: 1/3;
         background: $border-gray;
         border-radius: 5px;
         margin-top: 1rem;
+        gap: 0;
       }
     }
 
     .leaveContainer {
       display: grid;
+      grid-template-columns: 50px repeat(4, 100px) 180px 1fr;
+      border-bottom: 1px solid $border-gray;
+      gap: 1rem;
 
       @media screen and (min-width: 768px) {
-        grid-template-columns: 50px repeat(4, 2fr) 180px 1fr;
+        grid-template-columns: 50px repeat(4, 1fr) 180px 1fr;
         grid-column: 1/-1;
-        border-bottom: 1px solid $border-gray;
         padding: 1rem;
+        gap: 0;
       }
 
       .column {
         display: flex;
         align-items: center;
         text-align: center;
+
+        div {
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          @media screen and (min-width: 768px) {
+            overflow: visible;
+            text-overflow: clip;
+            white-space: wrap;
+          }
+        }
+
+        p {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          @media screen and (min-width: 768px) {
+            overflow: visible;
+            text-overflow: clip;
+            white-space: wrap;
+          }
+        }
       }
 
       .alignRight {
